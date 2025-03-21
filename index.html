@@ -24,22 +24,62 @@
 
         .site-title {
             text-align: center;
-            font-size: 3em;
+            font-size: 3.5em;
             font-weight: bold;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
             margin-top: 20px;
-            color: #fff; /* Title text color */
+            position: relative;
+        }
+
+        .site-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 50px;
+            height: 5px;
+            background: #ffcc5c;
+            border-radius: 5px;
+            transform: translateX(-50%);
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .about {
+            text-align: center; /* Centering the 'About Me' section */
+            padding: 40px;
+        }
+
+        .about h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.2em;
+            line-height: 1.6;
         }
 
         .project-grid {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             gap: 20px;
             padding: 20px;
             flex-wrap: wrap;
-            background: #2c3e50; /* Different background color for the middle box */
+            background: rgba(44, 62, 80, 0.8);
             border-radius: 15px;
             margin-top: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .project-box {
@@ -47,7 +87,7 @@
             background-color: #34495e;
             padding: 20px;
             border-radius: 10px;
-            width: 280px;
+            width: 220px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
@@ -59,7 +99,7 @@
 
         .project-box h3 {
             margin-bottom: 15px;
-            color: #fff; /* Change text color in the project box */
+            color: #fff;
         }
 
         .view-btn {
@@ -70,99 +110,17 @@
             cursor: pointer;
             border-radius: 5px;
             margin-top: 10px;
+            transition: background 0.3s;
         }
 
         .view-btn:hover {
             background-color: #ffcc5c;
         }
 
-        .preview-popup {
-            display: none;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-            width: 200px;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .project-box:hover .preview-popup {
-            display: block;
-        }
-
         iframe {
             width: 100%;
-            height: 250px;
-            border: none;
+            height: 200px;
             border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .dropdown {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
-        }
-
-        .dropbtn {
-            background-color: #ff6b6b;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 5px;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #575757;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            margin-top: 20px;
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-        }
-
-        .about {
-            text-align: center;
-            margin: 50px;
-        }
-
-        #about p {
-            font-size: 1.2em;
-            color: #fff; /* Change About Me text color */
         }
 
         .navigate-button {
@@ -176,58 +134,50 @@
             border-radius: 5px;
             font-size: 18px;
             text-decoration: none;
+            transition: background 0.3s;
         }
 
         .navigate-button:hover {
             background-color: #ffcc5c;
         }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 40px; /* Added space to move the footer further down */
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1 class="site-title">Portfolio</h1>
+        <h1 class="site-title floating">Portfolio</h1>
     </header>
 
     <section id="about" class="about">
         <h2>About Me</h2>
-        <p>Welcome to my portfolio! I am a passionate about the NHL franchise and EASPORTS. Have been playing since I can remember, love the game and have much expertise. Designing interactive and visually engaging applications is also my passion. Whether it's web development, gameplay or software engineering, I'm always eager to take on new challenges. Fjhgfd`2f   g3eel free to reach out!</p>
+        <p>Welcome to my portfolio! I am a passionate developer who loves bringing creative ideas to life through code. My expertise lies in designing interactive and visually engaging applications. Take a look at my projects below and feel free to reach out!</p>
     </section>
 
-    <section id="projects" class="projects">v
+    <section id="projects" class="projects">
         <div class="project-grid">
             <div class="project-box">
-                <h3>Project 1</h3>
+                <h3>Projects</h3>
                 <button class="view-btn"><a href="https://github.com/Cody660/ReactivePortfolio" target="_blank" style="text-decoration: none; color: white;">View Project</a></button>
-                <div class="preview-popup">Preview of Project 1 - <a href="https://github.com/Cody660/ReactivePortfolio" target="_blank" style="color: #ffcc5c;">Visit</a></div>
             </div>
             <div class="project-box">
                 <h3>Video Showcase</h3>
                 <iframe src="https://www.youtube.com/embed/eIh3mT0b_Bg" frameborder="0" allowfullscreen></iframe>
-                <div class="preview-popup">Preview of Video Showcase - <a href="https://youtu.be/eIh3mT0b_Bg" target="_blank" style="color: #ffcc5c;">Watch</a></div>
             </div>
         </div>
     </section>
 
-    <!-- Navigate Button placed under portfolio section, linked to either GitHub or YouTube -->
     <a href="https://github.com/cody660" class="navigate-button" target="_blank">Navigate to GitHub</a>
-    <!-- Alternatively, you could link to YouTube instead -->
-    <!-- <a href="https://www.youtube.com/channel/UCvt4Ayub8GDQLgD233eFsjg" class="navigate-button" target="_blank">Navigate to YouTube</a> -->
 
     <footer>
         <p>© 2025 My Portfolio | <a href="https://github.com/cody660" style="color: #ffcc5c;">GitHub</a> | <a href="https://www.youtube.com/channel/UCvt4Ayub8GDQLgD233eFsjg" style="color: #ffcc5c;">YouTube</a></p>
     </footer>
-
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll(".navigate-button").forEach(anchor => {
-            anchor.addEventListener("click", function(event) {
-                event.preventDefault();
-                const targetId = this.getAttribute("href").substring(1);
-                if (targetId) {
-                    document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
